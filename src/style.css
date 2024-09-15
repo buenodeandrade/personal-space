@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Color Palette */
+:root {
+  --primary-color: #dfeedf;
+  --secondary-color: #9ad39a;
+  --dark-color: #4d754d;
+  --accent-color: #70c470;
+  --neutral-color: #54a254;
+}
+
+/* Global Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--dark-color);
+  color: var(--accent-color);
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 0.9rem;
+  background-color: var(--neutral-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Container for the entire app */
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+}
+
+/* Header and Sidebar Styling */
+.app-header, .app-sidebar {
+  padding: 15px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.app-header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  gap: 20px;
+  background-color: var(--dark-color);
+  box-sizing: border-box;
+}
+
+.app-sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: var(--primary-color);
+  align-items: stretch;
+}
+
+/* Main content area styling */
+.app-main {
+  grid-area: main;
+  padding: 15px 15px 15px 5px;
+  overflow-y: auto;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Common Component Styling */
+.clock, .google-calendar, .spotify-player, .pomodoro, .todo-list, .notepad {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.clock, .google-calendar, .spotify-player {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  text-align: center; /* Center content if needed */
+}
+
+.clock, .spotify-player {
+  flex: 0 0 354px; /* Fixed width, you can adjust this value */
+}
+
+.google-calendar {
+  flex: 1; /* Take up the remaining space */
+  min-width: 0; /* Prevent overflow issues */
+}
+
+.pomodoro, .todo-list, .notepad {
+  background-color: var(--dark-color);
+  color: var(--primary-color);
+}
+
+.todo-list, .notepad {
+  flex: 1 1 auto;
+}
+
+.notepad {
+  overflow-y: auto;
+}
+
+/* Center align h2 elements */
+.notepad h3, .todo-list h3 {
+  text-align: center;
+}
+
+/* Pomodoro Component Styling */
+.pomodoro {
+  text-align: center;
+}
+
+.pomodoro h1 {
+  font-size: 2.5rem;
+  margin: 5px 0;
+}
+
+.pomodoro h2 {
+  margin: 20px 0 5px;
+}
+
+.inputs {
+  margin: 15px 0;
+}
+
+.inputs label {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inputs input {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  width: 60px;
+  padding: 7px;
+  font-size: 1rem;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+}
+
+/* Textarea Styling */
+textarea, .text {
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid var(--accent-color);
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  border-radius: 8px;
+  padding: 10px;
+  white-space: pre-wrap; /* Preserve line breaks */
+  overflow-y: auto;
+}
+
+textarea {
+  width: 98%;
+  height: 30%;
+}

@@ -34,7 +34,7 @@ function TodoList() {
       <button onClick={addTask}>Add Task</button>
       <ul>
         {tasks.map((t, index) => (
-          <li key={index} style={{ color: t.completed ? '#70c470' : '#dfeedf' }}>
+          <li key={index} style={{ color: t.completed ? '#54a254' : '#70c470' }}>
             {t.completed ? '☑ ' : '☐ '}
             {t.text}
             <button class="done" onClick={() => toggleTaskCompletion(index)}>

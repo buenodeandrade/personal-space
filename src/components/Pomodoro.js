@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import alertSound from '../sounds/alert.mp3';
+import playSound from '../sounds/play.mp3';
+import pauseSound from '../sounds/pause.mp3';
 
 function Pomodoro() {
   const [workTimeInput, setWorkTimeInput] = useState(25); // Input field for work time (in minutes)
@@ -6,6 +9,9 @@ function Pomodoro() {
   const [timeLeft, setTimeLeft] = useState(25 * 60);  // Default time left (25 minutes)
   const [isRunning, setIsRunning] = useState(false);  // Is the timer running?
   const [onBreak, setOnBreak] = useState(false);      // Is it break time?
+  const audioRef = useRef(null);
+  const startAudioRef = useRef(null);
+  const pauseAudioRef = useRef(null);
 
   useEffect(() => {
     let timer;
@@ -15,6 +21,7 @@ function Pomodoro() {
         setTimeLeft(prevTime => prevTime - 1);
       }, 1000);
     } else if (timeLeft === 0) {
+      audioRef.current.play(); // Play the sound when time reaches 0
       setOnBreak(prevOnBreak => !prevOnBreak); // Switch between work/break
       setTimeLeft(onBreak ? workTimeInput * 60 : breakTimeInput * 60); // Set new time
     }
@@ -23,7 +30,12 @@ function Pomodoro() {
   }, [isRunning, timeLeft, onBreak, workTimeInput, breakTimeInput]);
 
   const startPauseTimer = () => {
-    setIsRunning(!isRunning);
+    if (isRunning) {
+      pauseAudioRef.current.play(); // Play pause sound if the timer is running
+    } else {
+      startAudioRef.current.play(); // Play start sound if the timer is not running
+    }
+    setIsRunning(!isRunning); // Toggle the running state
   };
 
   const resetTimer = () => {
@@ -83,6 +95,9 @@ function Pomodoro() {
           Reset
         </button>
       </div>
+      <audio ref={audioRef} src={alertSound}></audio>
+      <audio ref={startAudioRef} src={playSound}></audio>
+      <audio ref={pauseAudioRef} src={pauseSound}></audio>
     </div>
   );
 }

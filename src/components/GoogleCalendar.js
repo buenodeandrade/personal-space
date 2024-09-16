@@ -24,7 +24,7 @@ const GoogleCalendar = () => {
       <iframe
         src="https://calendar.google.com/calendar/embed?src=en-us.brazilian%23holiday%40group.v.calendar.google.com&ctz=America%2FToronto"
         style={{ border: 0 }}
-        width="1000"
+        width="100%"
         height="180"
         title="Google Calendar"
       ></iframe>

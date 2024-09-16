@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Clock from './components/Clock';
 import GoogleCalendar from './components/GoogleCalendar';
-import SpotifyPlayer from './components/SpotifyPlayer';
 import TodoList from './components/TodoList';
 import Notepad from './components/Notepad';
-import Browser from './components/Browser';
 import Pomodoro from './components/Pomodoro';
 import './style.css';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <div className="app-container">
       <header className="app-header">
         <Clock />
-        
         <GoogleCalendar />
-        <SpotifyPlayer />
+        <button onClick={toggleTheme}>
+          {theme === 'dark' ? '☀︎' : '☾'}
+        </button>
       </header>
       <aside className="app-sidebar">
         <Pomodoro />

@@ -35,12 +35,12 @@ function TodoList() {
       <ul>
         {tasks.map((t, index) => (
           <li key={index} style={{ color: t.completed ? '#70c470' : '#dfeedf' }}>
-            {t.completed && <span>✓ </span>}
+            {t.completed ? '☑ ' : '☐ '}
             {t.text}
-            <button onClick={() => toggleTaskCompletion(index)}>
-              {t.completed ? 'Undo' : 'Done'}
+            <button class="done" onClick={() => toggleTaskCompletion(index)}>
+              {t.completed ? '↻' : '🗸'}
             </button>
-            <button onClick={() => removeTask(index)}>Remove</button>
+            <button class="delete" onClick={() => removeTask(index)}>✗</button>
           </li>
         ))}
       </ul>

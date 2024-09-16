@@ -26,7 +26,7 @@ function Notepad() {
       <button onClick={saveNote}>Save Note</button>
       <ul>
         {savedNotes.map((n, index) => (
-          <li key={index}>{n}<button onClick={() => removeNote(index)}>Delete</button></li>
+          <li key={index}>{n}<button class="delete" onClick={() => removeNote(index)}>✗</button></li>
         ))}
       </ul>
     </div>

@@ -16,7 +16,7 @@ This project was developed as an exploration to React and responsiveness, focusi
 - **Responsive Design**: Adapts seamlessly to various screen sizes, including fullscreen horizontal, fullscreen vertical, half-screen horizontal, and half-screen vertical views. Elements shrink proportionally while maintaining the same layout.
 - **Light/Dark Mode**: Toggle between light and dark themes to suit your preference.
 
-![image](https://github.com/user-attachments/assets/88b4bc77-2e6f-4e84-bde0-8dc806b61f4e)
+![image](https://github.com/user-attachments/assets/f7f6272f-4f43-4a98-96ac-e0a774677c75)
 
 ## Tech Stack
 
